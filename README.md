@@ -22,6 +22,32 @@ attendance, and department.
 - Lambda functions
 - Data filtering and sorting
 
+## Key Code Logic (Sample)
+
+```python
+import pandas as pd
+
+# Create student dataset
+students = {
+    "Name": ["Amit", "Neha", "Rahul", "Priya"],
+    "Department": ["CS", "IT", "CS", "IT"],
+    "Marks": [78, 45, 88, 62]
+}
+
+# Convert to DataFrame
+df = pd.DataFrame(students)
+
+# Calculate average marks
+average_marks = df["Marks"].mean()
+
+# Assign Pass/Fail using conditional logic
+df["Result"] = df["Marks"].apply(lambda x: "Pass" if x >= 50 else "Fail")
+
+# Filter CS students and sort by marks
+cs_students = df[df["Department"] == "CS"].sort_values(by="Marks", ascending=False)
+
+
+
 ## What I Learned
 - How to work with real-world style data
 - How to apply conditional logic on datasets
